@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+  <msteamsnotifications
+          token="thisismytoken"
+          iconurl="http://www.myicon.com/icon.gif"
+          botname="Team City">
+    <proxy host="myproxy.mycompany.com" port="8080"/>
+    <info url="http://intranet.mycompany.com/docs/UsingMsTeamsNotifications" text="Using MsTeamsNotifications in myCompany Inc." />
+  </msteamsnotifications>
+</server>

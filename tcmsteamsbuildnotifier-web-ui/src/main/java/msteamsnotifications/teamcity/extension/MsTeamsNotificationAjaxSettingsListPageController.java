@@ -1,0 +1,85 @@
+package msteamsnotifications.teamcity.extension;
+
+import jetbrains.buildServer.controllers.BaseController;
+import jetbrains.buildServer.serverSide.SBuildServer;
+import jetbrains.buildServer.serverSide.SBuildType;
+import jetbrains.buildServer.serverSide.SProject;
+import jetbrains.buildServer.serverSide.settings.ProjectSettingsManager;
+import jetbrains.buildServer.web.openapi.PluginDescriptor;
+import jetbrains.buildServer.web.openapi.WebControllerManager;
+import org.jetbrains.annotations.Nullable;
+import org.springframework.web.servlet.ModelAndView;
+import msteamsnotifications.teamcity.TeamCityIdResolver;
+import msteamsnotifications.teamcity.extension.bean.ProjectMsTeamsNotificationsBean;
+import msteamsnotifications.teamcity.extension.bean.ProjectMsTeamsNotificationsBeanJsonSerialiser;
+import msteamsnotifications.teamcity.payload.MsTeamsNotificationPayloadManager;
+import msteamsnotifications.teamcity.settings.MsTeamsNotificationMainSettings;
+import msteamsnotifications.teamcity.settings.MsTeamsNotificationProjectSettings;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+
+
+public class MsTeamsNotificationAjaxSettingsListPageController extends BaseController {
+	
+	private static final String PROJECT_ID = "projectId";
+
+	private final WebControllerManager myWebManager;
+    private final MsTeamsNotificationMainSettings myMainSettings;
+
+    private SBuildServer myServer;
+	private ProjectSettingsManager mySettings;
+	private PluginDescriptor myPluginDescriptor;
+	private final MsTeamsNotificationPayloadManager myManager;
+
+	    public MsTeamsNotificationAjaxSettingsListPageController(SBuildServer server, WebControllerManager webManager,
+                                                               ProjectSettingsManager settings, MsTeamsNotificationPayloadManager manager, PluginDescriptor pluginDescriptor,
+                                                               MsTeamsNotificationMainSettings mainSettings) {
+	        super(server);
+	        myWebManager = webManager;
+	        myServer = server;
+	        mySettings = settings;
+	        myPluginDescriptor = pluginDescriptor;
+	        myManager = manager;
+            myMainSettings = mainSettings;
+	    }
+
+	    public void register(){
+	      myWebManager.registerController("/msteamsnotifications/settingsList.html", this);
+	    }
+
+		@Override
+	    @Nullable
+	    protected ModelAndView doHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	    	
+	        HashMap<String,Object> params = new HashMap<String,Object>();
+	        params.put("jspHome",this.myPluginDescriptor.getPluginResourcesPath());
+	        
+	        if(request.getParameter(PROJECT_ID) != null 
+	        		&& request.getParameter(PROJECT_ID).startsWith("project")){
+	        	
+	        	SProject project = this.myServer.getProjectManager().findProjectById(request.getParameter(PROJECT_ID));
+		    	MsTeamsNotificationProjectSettings projSettings = (MsTeamsNotificationProjectSettings)
+		    			mySettings.getSettings(request.getParameter(PROJECT_ID), "msteamsNotifications");
+		    	
+		    		params.put("projectMsTeamsNotificationsAsJson", ProjectMsTeamsNotificationsBeanJsonSerialiser.serialise(ProjectMsTeamsNotificationsBean.build(projSettings, project, myMainSettings)));
+	        } else if (request.getParameter("buildTypeId") != null){
+        		SBuildType sBuildType = TeamCityIdResolver.findBuildTypeById(this.myServer.getProjectManager(), request.getParameter("buildTypeId"));
+        		if (sBuildType != null){
+		        	SProject project = sBuildType.getProject();
+		        	if (project != null){
+				    	MsTeamsNotificationProjectSettings projSettings = (MsTeamsNotificationProjectSettings)
+				    			mySettings.getSettings(project.getProjectId(), "msteamsNotifications");
+		        		params.put("projectMsTeamsNotificationsAsJson", ProjectMsTeamsNotificationsBeanJsonSerialiser.serialise(ProjectMsTeamsNotificationsBean.build(projSettings, sBuildType, project, myMainSettings)));
+		        	}
+        		}
+	        
+	        } else {
+	        	params.put("haveProject", "false");
+	        }
+
+	        return new ModelAndView(myPluginDescriptor.getPluginResourcesPath() + "MsTeamsNotification/settingsList.jsp", params);
+	        //return new ModelAndView("/MsTeamsNotification/settingsList.jsp", params);
+	    }
+}

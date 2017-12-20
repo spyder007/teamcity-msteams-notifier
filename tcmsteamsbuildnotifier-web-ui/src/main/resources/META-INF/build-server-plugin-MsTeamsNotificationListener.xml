@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="constructor">
+
+	<bean id="msteamsNotificationListener"
+		class="msteamsnotifications.teamcity.MsTeamsNotificationListener"
+  		init-method="register" 
+  		/>
+  		
+	<!-- bean id="testListener" 
+		class="msteamsnotifications.teamcity.TestListener"
+  		init-method="register" 
+  		/-->
+
+	<bean id="msteamsNotificationNotificator"
+		  class="msteamsnotifications.teamcity.MsTeamsNotificator"
+		  init-method="register"
+			/>
+
+	<bean id="msteamsNotifierAdminPage" class="msteamsnotifications.teamcity.extension.MsTeamsNotifierAdminPage"/>
+
+    <bean id="msteamsNotifierSettingsController" class="msteamsnotifications.teamcity.extension.MsTeamsNotifierSettingsController"/>
+
+	<bean id="msteamsNotificationProjectTabExtension"
+        class="msteamsnotifications.teamcity.extension.MsTeamsNotificationProjectTabExtension"
+        init-method="register" 
+        />
+
+	<bean id="msteamsNotificationBuildTabExtension"
+        class="msteamsnotifications.teamcity.extension.MsTeamsNotificationBuildTabExtension"
+        init-method="register" 
+        />
+ 
+    <bean id="msteamsNotificationIndexPageController"
+     	class="msteamsnotifications.teamcity.extension.MsTeamsNotificationIndexPageController"
+     	init-method="register" 
+     	/>
+
+     <bean id="msteamsNotificationAjaxSettingsListPageController"
+     	class="msteamsnotifications.teamcity.extension.MsTeamsNotificationAjaxSettingsListPageController"
+     	init-method="register" 
+     	/>
+
+     <bean id="msteamsNotificationAjaxEditPageController"
+     	class="msteamsnotifications.teamcity.extension.MsTeamsNotificationAjaxEditPageController"
+     	init-method="register" 
+     	/>
+     			
+     <bean id="msteamsNotificationFactory"
+     	class="msteamsnotifications.teamcity.MsTeamsNotificationFactoryImpl"
+     	/>
+     			
+     <bean id="msteamsNotificationProjectSettings"
+     	class="msteamsnotifications.teamcity.settings.MsTeamsNotificationProjectSettings"
+     	/>
+
+     <bean id="msteamsNotificationProjectSettingsFactory"
+     	class="msteamsnotifications.teamcity.settings.MsTeamsNotificationProjectSettingsFactory"
+     	/>
+
+	<bean id="msteamsNotificationMainSettings"
+		class="msteamsnotifications.teamcity.settings.MsTeamsNotificationMainSettings"
+		init-method="register"
+		/>
+
+    <bean id="msteamsNotificationMainConfig"
+          class="msteamsnotifications.teamcity.settings.MsTeamsNotificationMainConfig"/>
+
+	<bean id="msteamsNotificationPayloadManager"
+		class="msteamsnotifications.teamcity.payload.MsTeamsNotificationPayloadManager"
+		/>
+
+	<!--<bean id="msteamsNotificationPayloadNameValuePairs"
+		class="msteamsnotifications.teamcity.payload.format.MsTeamsNotificationPayloadSummary"
+		init-method="register">
+		<property name="rank">
+			<value>15</value>
+		</property>
+	</bean>
+
+	<bean id="msteamsNotificationPayloadJson"
+		class="msteamsnotifications.teamcity.payload.format.MsTeamsNotificationPayloadDetailed"
+		init-method="register">
+		<property name="rank">
+			<value>10</value>
+		</property>
+	</bean>
+
+	<bean id="msteamsNotificationPayloadXml"
+		class="msteamsnotifications.teamcity.payload.format.MsTeamsNotificationPayloadXml"
+		init-method="register">
+		<property name="rank">
+			<value>8</value>
+		</property>
+	</bean>
+
+	<bean id="msteamsNotificationEmptyPayload"
+		class="msteamsnotifications.teamcity.payload.format.MsTeamsNotificationPayloadShort"
+		init-method="register">
+		<property name="rank">
+			<value>5</value>
+		</property>
+	</bean>-->
+
+</beans>

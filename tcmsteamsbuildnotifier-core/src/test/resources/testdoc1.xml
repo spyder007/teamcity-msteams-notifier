@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <msteamsNotifications enabled="false">
+    <msteamsNotification enabled="true" token="hook.msteams.com" channel="http://something" statemask="255">
+      <parameters>
+	    <param name="foo" value="bar" />
+      </parameters>
+    </msteamsNotification>
+    <msteamsNotification enabled="true" token="hook.msteams.com" channel="http://localhost.local.network/msteamsnotifications/test/test">
+      <parameters>
+	    <param name="fromTeamCity" value="%system.test.1%" />
+      </parameters>
+    </msteamsNotification>
+    <msteamsNotification enabled="false" token="hook.msteams.com" channel="http://localhost.local.network/msteamsnotifications/test/teamcity" />
+  </msteamsNotifications>
+</settings>

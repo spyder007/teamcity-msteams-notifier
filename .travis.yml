@@ -1,0 +1,13 @@
+language: java
+jdk:
+- oraclejdk8
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: DEhG+une01oTPyhRu7lZhKdkv6BAJn68QFu8BfdF+nCrZF8bApZtjrStCYA4phvadk98DuWvZRiMierqibjo345ZNHLNLblUy64QefxN9o8UjHkspr4oi2q3EchAA7XNaMFxfRf9xc4rTry4SYD7R5a1j5SXaY9mAfr1iFUT+AVFHjE9lKqUZ0K9r9keA0g62VnprXHrip9vb/894C2XKv9MzlWe5AVZyqXsSDyCCPS/aO4KD8ADb0202blQwbTUhV6hAPj7dNZAYXYxSU8Ec9zaq84OMih6NH46PZvGAT8c0W8qDAXycL2vVm91m1enFdAyqRKaU4wEFtb9+9fqFEzNed5BBmXP2QIoQ+TWZD4aaE/prD/gEg0gGiZQJfZ8NS5XYA62LtEn9+BINUW8XvaLcJ5RtmtqGfn2ReH6p2ZlqQqnX+n1pnFXW+SejeDTnHjCjiapV4k/g5XLiiERWqJhbwH27OfjSkyKz6nxnAOE05sppZ8+oWzj5DiQvS7zGimWgza8Vrs5boh6BDL0ln5BklMj1giMbZG/URXdVxOFSyGZcgjRGYEBMDe0zMaC4Y43Se8QnoPj79x89VTV/EajelRrQaIUoT9qYidDCl/WYWJD5UEx/Wlboj1JgK8TuM/IfV8y6fdszwBQl2Baxkj6ipIYzz7L2Y0LLh0BU78=
+  file_glob: true
+  file: "/tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-*.zip"
+  on:
+    repo: spyder007/teamcity-msteams-notifier
+    branch: master
