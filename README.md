@@ -1,6 +1,8 @@
 Teamcity MS Teams Build Notifier
 ====================
 
+![Build Status](https://travis-ci.org/spyder007/teamcity-msteams-notifier.svg?branch=master)
+
 ## Overview
 
 Posts Build Status to [MsTeams](http://teams.microsoft.com).  This plugin is based on the [tcSlackBuildNotifier](https://github.com/PeteGoo/tcSlackBuildNotifier) plugin.
