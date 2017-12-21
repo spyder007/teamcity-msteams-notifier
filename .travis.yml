@@ -10,4 +10,4 @@ deploy:
   file: "/tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-*.zip"
   on:
     repo: spyder007/teamcity-msteams-notifier
-    branch: master
+    tags: true
