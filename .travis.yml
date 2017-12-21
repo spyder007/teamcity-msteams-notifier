@@ -7,7 +7,7 @@ deploy:
   api_key:
     secure: yRi2gehFZ5f5jZSDuo1VJNUkEnQkLUNc6tKxfUQ0GeP7UCRoTwuAKxq5WbxK6SnuHgj1aCj0CbtLGAKeh6TnE376qwOFrsNogBhAr3uENdjvcSwtIICV4i37Je9pAwVh4nz9fkkh/wt+816EnaaISZyzpM/tgVfx9IvqDILNOzDai3BX8qikw3exHjHBVBpgzBwtl4XdZsokV+sHKBgj0BZo/++YV41DBo5rtCzIj/AUAk85alnw7YTdHlONO7iTTPgIJ7o/WKaXvSvQW5FCbO1oAkY+QQv3O7tXtYo5IOmXMR/UvgorAj9csq1d5SPzjQtJCvQxjhTRj1GMvfYSBoGxQaArK3C53vPvcrusjYpyC+h8PEAs4Wt/7zfJifeOjWaPsWU3dDfLmQ2y7rs+dri1YVfaTW5+c5sEay1/XtQkXs9VBZ+TsCUGBKi5EyeTg4Lzs7aC5g703/ujUSo06f1oC94oYkl7F098g+s66gbHqpLQtpHMKhwkLj3nUNZvcYfygukorC/wdF7dl0qIfKbZ4Cw/UuJrQN2GrN+B9SWFC7/ZVVUhvoLmIwAh0t+SHpTDU3Z5QovqkCy0cXaAK+7/HaAqhCpv5CER4vFoflolgBgEWSJ1GOKOfztLEowmvb2uPMTGlPVIA5CsWSCsPODScjJS8/6ZaT3ynXk6J3s=
   file_glob: true
-  file: '/tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-*.zip'
+  file: 'tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-*.zip'
   on:
     repo: spyder007/teamcity-msteams-notifier
     tags: true
