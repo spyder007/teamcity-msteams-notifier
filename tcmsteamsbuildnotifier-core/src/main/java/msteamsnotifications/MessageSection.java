@@ -20,7 +20,6 @@ public class MessageSection {
     public MessageSection(String title, String text) {
         this.title = title;
         this.text = text;
-
         this.facts = new ArrayList<Field>();
     }
 
@@ -40,5 +39,15 @@ public class MessageSection {
 
     public void setActivityImage(String activityImage) {
         this.activityImage = activityImage;
+        if (activityImage != null && !activityImage.isEmpty())
+        {
+            this.activityTitle = this.title;
+            this.title = null;
+        }
+        else
+        {
+            this.title = this.activityTitle;
+            this.activityTitle = null;
+        }
     }
 }
