@@ -38,7 +38,7 @@ public class MsTeamsNotificator implements Notificator {
     private NotificationUtility notificationUtility;
 
     private static final String SLACK_USERNAME_KEY = "tcMsTeamsNotifier.userName";
-    private static final String TYPE = "tcMsTeamsBuildNotifier";
+    private static final String TYPE = "tcMsTmBldNotifier";
 
     public static final PropertyKey USERNAME_KEY = new NotificatorPropertyKey(TYPE, SLACK_USERNAME_KEY);
 
