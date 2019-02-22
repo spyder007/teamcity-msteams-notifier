@@ -52,15 +52,7 @@ public class MsTeamsNotificationPayloadContent {
     Boolean branchIsDefault;
 
     Branch branch;
-
-/*
-    public final static String BUILD_STATUS_FAILURE   = "failure";
-    public final static String BUILD_STATUS_SUCCESS   = "success";
-    public final static String BUILD_STATUS_RUNNING   = "running";
-    public final static String BUILD_STATUS_NO_CHANGE = "unchanged";
-    public final static String BUILD_STATUS_FIXED     = "fixed";
-    public final static String BUILD_STATUS_BROKEN    = "broken";
-    public final static String BUILD_STATUS_UNKNOWN   = "unknown";*/
+    TriggeredBy trigger;
 
     public final static String BUILD_STATUS_FAILURE   = "Failed";
     public final static String BUILD_STATUS_SUCCESS   = "Succeeded";
@@ -202,6 +194,7 @@ public class MsTeamsNotificationPayloadContent {
         setBuildTypeId(TeamCityIdResolver.getBuildTypeId(sRunningBuild.getBuildType()));
         setAgentName(sRunningBuild.getAgentName());
         setElapsedTime(sRunningBuild.getElapsedTime());
+        setTrigger(sRunningBuild.getTriggeredBy());
 
         try {
             if (sRunningBuild.getBranch() != null) {
@@ -220,7 +213,7 @@ public class MsTeamsNotificationPayloadContent {
         setBuildDescriptionWithLinkSyntax(String.format("[" + getBuildResult() + " - " + sRunningBuild.getBuildType().getFullName() + " #" + sRunningBuild.getBuildNumber() + branchSuffix + "](" + getBuildStatusUrl() + ")"));
     }
 		
-				private Branch getBranch() {
+		private Branch getBranch() {
 			return this.branch;
 		}
 		
@@ -393,6 +386,17 @@ public class MsTeamsNotificationPayloadContent {
         this.color = color;
     }
 
+    public void setTrigger(TriggeredBy triggeredBy) {
+        this.trigger = triggeredBy;
+    }
+
+    public String getTriggeredByText() {
+        if (this.trigger == null) {
+            return "";
+        }
+
+        return this.trigger.getAsString();
+    }
 
     public void setElapsedTime(long elapsedTime) {
         this.elapsedTime = elapsedTime;

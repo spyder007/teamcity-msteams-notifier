@@ -194,6 +194,9 @@ public class MsTeamsNotificationImpl implements MsTeamsNotification {
         MessageSection generalMessageSection = new MessageSection(this.payload.getBuildName(), null);
         generalMessageSection.setActivityImage(this.iconUrl);
 
+        generalMessageSection.addFact("Branch", this.payload.getBranchDisplayName());
+        generalMessageSection.addFact("Triggered by", this.payload.getTriggeredByText());
+
         if(showBuildAgent == null || showBuildAgent){
             generalMessageSection.addFact("Agent", this.payload.getAgentName());
         }
