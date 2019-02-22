@@ -11,7 +11,7 @@
   <form action="${actionUrl}" id="msTeamsNotifierAdminForm" method="post" onsubmit="return MsTeamsNotifierAdmin.save()" >
     <div class="editNotificatorSettingsPage">
           <div>
-             <span class="msteamsNotifierVersionInfo">Version: <c:out value='${pluginVersion}'/>&nbsp;<a href="https://github.com/spyder007/tcMsTeamsBuildNotifier" class="helpIcon" style="vertical-align: middle;" target="_blank"><bs:helpIcon/></a></span>
+             <span class="msteamsNotifierVersionInfo">Version: <c:out value='${pluginVersion}'/>&nbsp;<a href="https://github.com/spyder007/teamcity-msteams-notifier" class="helpIcon" style="vertical-align: middle;" target="_blank"><bs:helpIcon/></a></span>
           </div>
           <c:choose>
             <c:when test="${disabled}">
@@ -33,7 +33,7 @@
 
           <table class="runnerFormTable">
                 <tr class="groupingTitle">
-                        <td colspan="2">General Configuration&nbsp;<a href="https://github.com/spyder007/tcMsTeamsBuildNotifier" class="helpIcon" style="vertical-align: middle;" target="_blank"><bs:helpIcon/></a></td>
+                        <td colspan="2">General Configuration&nbsp;<a href="https://github.com/spyder007/teamcity-msteams-notifier" class="helpIcon" style="vertical-align: middle;" target="_blank"><bs:helpIcon/></a></td>
                 </tr>
                 <tr>
                     <th>
