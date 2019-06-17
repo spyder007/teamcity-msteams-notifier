@@ -143,18 +143,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- TeamCity/webapps/WEB-INF/lib/runtime-util.jar -->
-		<!--<dependency>
-			<groupId>com.jetbrains.teamcity</groupId>
-			<artifactId>runtime-util</artifactId>
-			<version>7.1.0</version>
-			<scope>provided</scope>
-		</dependency>-->
-
-		<!-- TeamCity/webapps/WEB-INF/lib/server-model.jar -->
-		<!-- <dependency> <groupId>com.jetbrains.teamcity</groupId> <artifactId>model</artifactId> 
-			<version>4.0.2</version> <scope>provided</scope> </dependency> -->
-
 		<!-- TeamCity/webapps/WEB-INF/lib/common-api.jar -->
 		<dependency>
 			<groupId>org.jetbrains.teamcity</groupId>
@@ -163,22 +151,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- <dependency> <groupId>com.jetbrains.teamcity</groupId> <artifactId>openapi</artifactId> 
-			<version>7.1.0</version> <scope>provided</scope> </dependency> -->
-
 		<dependency>
 			<groupId>com.intellij</groupId>
 			<artifactId>openapi</artifactId>
 			<version>7.0.3</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!--<dependency>
-			<groupId>com.jetbrains.teamcity</groupId>
-			<artifactId>annotations</artifactId>
-			<version>7.1.0</version>
-			<scope>provided</scope>
-		</dependency>-->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
