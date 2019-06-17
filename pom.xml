@@ -4,10 +4,10 @@
     <groupId>spyder007.teamcity.plugins.tcmsteamsnotifications</groupId>
     <artifactId>tcmsteamsbuildnotifier</artifactId>
     <properties>
-        <teamcity-version>10.0.5</teamcity-version>
-        <majorVersion>1</majorVersion>
+        <teamcity-version>2019.1</teamcity-version>
+        <majorVersion>2</majorVersion>
         <minorVersion>0</minorVersion>
-        <patchVersion>7</patchVersion>
+        <patchVersion>0</patchVersion>
         <currentVersion>${majorVersion}.${minorVersion}.${patchVersion}</currentVersion>
     </properties>
     <version>${currentVersion}</version>
@@ -118,6 +118,10 @@
         <repository>
             <id>tcmsteamsnotifications.sourceforge</id>
             <url>http://svn.code.sf.net/p/tcplugins/code/maven2-repo</url>
+        </repository>
+        <repository>
+            <id>jetbrains-all</id>
+            <url>https://download.jetbrains.com/teamcity-repository</url>
         </repository>
     </repositories>
 
