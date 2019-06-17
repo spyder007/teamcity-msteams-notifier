@@ -3,6 +3,7 @@ package msteamsnotifications.teamcity;
 import jetbrains.buildServer.BuildAgent;
 import jetbrains.buildServer.LicenseNotGrantedException;
 import jetbrains.buildServer.serverSide.*;
+import jetbrains.buildServer.serverSide.agentPools.AgentPool;
 import jetbrains.buildServer.serverSide.comments.Comment;
 import jetbrains.buildServer.users.SUser;
 import jetbrains.buildServer.users.User;
@@ -10,6 +11,7 @@ import jetbrains.buildServer.users.User;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 
@@ -20,8 +22,7 @@ public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 	private String osVersion;
 	private SRunningBuild sRunningBuild;
 
-	public MockSBuildAgent(String agentName, String hostname, String ipAddress,
-			int agentId, String osVersion) {
+	public MockSBuildAgent(String agentName, String hostname, String ipAddress, int agentId, String osVersion) {
 		this.name = agentName;
 		this.hostame = hostname;
 		this.ipAddress = ipAddress;
@@ -91,10 +92,10 @@ public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 		return null;
 	}
 
-	public void setRunningBuild(SRunningBuild sRunningBuild){
+	public void setRunningBuild(SRunningBuild sRunningBuild) {
 		this.sRunningBuild = sRunningBuild;
 	}
-	
+
 	public SRunningBuild getRunningBuild() {
 		return this.sRunningBuild;
 	}
@@ -152,8 +153,7 @@ public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 
 	}
 
-	public void setAuthorized(boolean arg0, SUser arg1, String arg2)
-			throws LicenseNotGrantedException {
+	public void setAuthorized(boolean arg0, SUser arg1, String arg2) throws LicenseNotGrantedException {
 		// TODO Auto-generated method stub
 
 	}
@@ -233,15 +233,50 @@ public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 
 	public void setEnabled(boolean arg0, SUser arg1, String arg2, long arg3) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	// From tc 7.1
 
 	@Override
 	public int getAgentTypeId() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Set<String> getAvailableRunTypeIds() {
+		return null;
+	}
+
+	@Override
+	public int getAgentPoolId() {
+		return 0;
+	}
+
+	@Override
+	public String describe(boolean arg0) {
+		return null;
+	}
+
+	@Override
+	public AgentPool getAgentPool() {
+		return null;
+	}
+
+	@Override
+	public String getCommunicationProtocolDescription() {
+		return null;
+	}
+
+	@Override
+	public String getCommunicationProtocolType() {
+		return null;
+	}
+
+	@Override
+	public boolean isCloudAgent() {
+		return false;
 	}
 	
 
