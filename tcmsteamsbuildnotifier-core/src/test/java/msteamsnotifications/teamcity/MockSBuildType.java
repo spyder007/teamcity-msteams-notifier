@@ -16,6 +16,7 @@ import jetbrains.buildServer.serverSide.dependency.CyclicDependencyFoundExceptio
 import jetbrains.buildServer.serverSide.dependency.Dependency;
 import jetbrains.buildServer.serverSide.dependency.Dependent;
 import jetbrains.buildServer.serverSide.identifiers.DuplicateExternalIdException;
+import jetbrains.buildServer.serverSide.parameters.types.TypedValue;
 import jetbrains.buildServer.users.SUser;
 import jetbrains.buildServer.users.User;
 import jetbrains.buildServer.util.Option;
@@ -26,10 +27,11 @@ import java.io.File;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class MockSBuildType implements SBuildType {
-	
+
 	private SProject project;
 	private String name;
 	private ResponsibilityInfo responsibiltyInfo;
@@ -38,7 +40,7 @@ public class MockSBuildType implements SBuildType {
 	private RunType runType = new MockRunType();
 	private String description;
 	private String buildTypeId;
-	
+
 	public MockSBuildType(String name, String description, String buildTypeId) {
 		this.name = name;
 		this.description = description;
@@ -70,7 +72,6 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
-
 	public void clearRunParameters() {
 		// TODO Auto-generated method stub
 
@@ -91,8 +92,7 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
-	public <T extends SBuildAgent> AgentCompatibility getAgentCompatibility(
-			T arg0) {
+	public <T extends SBuildAgent> AgentCompatibility getAgentCompatibility(T arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -136,7 +136,7 @@ public class MockSBuildType implements SBuildType {
 	}
 
 	public RunType getBuildRunner() {
-		return this.runType ;
+		return this.runType;
 	}
 
 	public <T extends BuildAgent> List<T> getCanRunAgents() {
@@ -144,8 +144,7 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
-	public <T extends BuildAgent> List<T> getCanRunAndCompatibleAgents(
-			boolean arg0) {
+	public <T extends BuildAgent> List<T> getCanRunAndCompatibleAgents(boolean arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -165,8 +164,7 @@ public class MockSBuildType implements SBuildType {
 		return 0;
 	}
 
-	public List<FilteredVcsChange> getFilteredChanges(SVcsModification arg0,
-			SBuild arg1) {
+	public List<FilteredVcsChange> getFilteredChanges(SVcsModification arg0, SBuild arg1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -407,8 +405,7 @@ public class MockSBuildType implements SBuildType {
 
 	}
 
-	public void setName(String arg0) throws DuplicateBuildTypeNameException,
-			BuildTypeRenamingFailedException {
+	public void setName(String arg0) throws DuplicateBuildTypeNameException, BuildTypeRenamingFailedException {
 		this.name = arg0;
 	}
 
@@ -537,8 +534,7 @@ public class MockSBuildType implements SBuildType {
 
 	}
 
-	public void addDependency(Dependency arg0)
-			throws CyclicDependencyFoundException {
+	public void addDependency(Dependency arg0) throws CyclicDependencyFoundException {
 		// TODO Auto-generated method stub
 
 	}
@@ -582,15 +578,14 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
-	public void removeResponsible(boolean arg0, User arg1, String arg2,
-			User arg3) {
+	public void removeResponsible(boolean arg0, User arg1, String arg2, User arg3) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void setResponsible(User arg0, String arg1, User arg2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Collection<String> getRunnerTypes() {
@@ -600,22 +595,20 @@ public class MockSBuildType implements SBuildType {
 
 	public void addBuildFeature(SBuildFeatureDescriptor arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public SBuildFeatureDescriptor addBuildFeature(String arg0,
-			Map<String, String> arg1) {
+	public SBuildFeatureDescriptor addBuildFeature(String arg0, Map<String, String> arg1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void addBuildRunner(SBuildRunnerDescriptor arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public SBuildRunnerDescriptor addBuildRunner(String arg0, String arg1,
-			Map<String, String> arg2) {
+	public SBuildRunnerDescriptor addBuildRunner(String arg0, String arg1, Map<String, String> arg2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -627,12 +620,12 @@ public class MockSBuildType implements SBuildType {
 
 	public void addConfigParameter(Parameter arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void applyRunnersOrder(String[] arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public SBuildRunnerDescriptor findBuildRunnerById(String arg0) {
@@ -702,7 +695,7 @@ public class MockSBuildType implements SBuildType {
 
 	public void removeAllBuildRunners() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public SBuildFeatureDescriptor removeBuildFeature(String arg0) {
@@ -722,35 +715,32 @@ public class MockSBuildType implements SBuildType {
 
 	public void removeConfigParameter(String arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public boolean replaceInValues(String arg0, String arg1)
-			throws PatternSyntaxException {
+	public boolean replaceInValues(String arg0, String arg1) throws PatternSyntaxException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void setBuildNumberPattern(String arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public boolean updateBuildFeature(String arg0, String arg1,
-			Map<String, String> arg2) {
+	public boolean updateBuildFeature(String arg0, String arg1, Map<String, String> arg2) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean updateBuildRunner(String arg0, String arg1, String arg2,
-			Map<String, String> arg3) {
+	public boolean updateBuildRunner(String arg0, String arg1, String arg2, Map<String, String> arg3) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void addParameter(Parameter arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Collection<Parameter> getParametersCollection() {
@@ -760,7 +750,7 @@ public class MockSBuildType implements SBuildType {
 
 	public void removeParameter(String arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public CompatibilityResult getAgentCompatibility(AgentDescription arg0) {
@@ -783,15 +773,14 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
-	public void attachToTemplate(BuildTypeTemplate arg0, boolean arg1)
-			throws InvalidVcsRootScopeException {
+	public void attachToTemplate(BuildTypeTemplate arg0, boolean arg1) throws InvalidVcsRootScopeException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void detachFromTemplate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public SBuildRunnerDescriptor findBuildRunnerByType(String arg0) {
@@ -866,21 +855,20 @@ public class MockSBuildType implements SBuildType {
 
 	public void moveToProject(SProject arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void persist() throws PersistFailedException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void setPaused(boolean arg0, User arg1, String arg2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public boolean addVcsRoot(SVcsRoot arg0)
-			throws InvalidVcsRootScopeException, VcsRootNotFoundException {
+	public boolean addVcsRoot(SVcsRoot arg0) throws InvalidVcsRootScopeException, VcsRootNotFoundException {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -893,13 +881,12 @@ public class MockSBuildType implements SBuildType {
 	public Collection<SBuildAgent> getCompatibleAgents() {
 		// TODO Auto-generated method stub
 		return null;
-	} 
-	
+	}
+
 	// From 7.1
 
 	@Override
-	public BuildTriggerDescriptor addBuildTrigger(String arg0,
-			Map<String, String> arg1) {
+	public BuildTriggerDescriptor addBuildTrigger(String arg0, Map<String, String> arg1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -919,18 +906,17 @@ public class MockSBuildType implements SBuildType {
 	@Override
 	public void setEnabled(String arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public boolean updateBuildTrigger(String arg0, String arg1,
-			Map<String, String> arg2) {
+	public boolean updateBuildTrigger(String arg0, String arg1, Map<String, String> arg2) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	// From 8.0
-	
+
 	@Override
 	public File getConfigurationFile() {
 		// TODO Auto-generated method stub
@@ -950,14 +936,13 @@ public class MockSBuildType implements SBuildType {
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void setExternalId(String arg0) throws InvalidIdentifierException,
-			DuplicateExternalIdException {
+	public void setExternalId(String arg0) throws InvalidIdentifierException, DuplicateExternalIdException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -996,10 +981,9 @@ public class MockSBuildType implements SBuildType {
 	}
 
 	@Override
-	public void attachToTemplate(BuildTypeTemplate arg0)
-			throws CannotAttachToTemplateException {
+	public void attachToTemplate(BuildTypeTemplate arg0) throws CannotAttachToTemplateException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -1021,10 +1005,210 @@ public class MockSBuildType implements SBuildType {
 	}
 
 	@Override
-	public void moveToProject(SProject arg0)
-			throws InvalidVcsRootScopeException {
+	public void moveToProject(SProject arg0) throws InvalidVcsRootScopeException {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void setExternalId(ConfigAction arg0, String arg1)
+			throws InvalidIdentifierException, DuplicateExternalIdException, ObsoleteEntityException {
+
+	}
+
+	@Override
+	public String getConfigId() {
+		return null;
+	}
+
+	@Override
+	public File getConfigurationFile(File arg0) {
+		return null;
+	}
+
+	@Override
+	public PersistentEntityVersion getVersion() {
+		return null;
+	}
+
+	@Override
+	public void markPersisted(long arg0) {
+
+	}
+
+	@Override
+	public void persist(ConfigAction arg0) throws PersistFailedException {
+
+	}
+
+	@Override
+	public void addArtifactDependency(SArtifactDependency arg0) {
+
+	}
+
+	@Override
+	public SBuildFeatureDescriptor findBuildFeatureById(String arg0) {
+		return null;
+	}
+
+	@Override
+	public List<Requirement> getBuildFeatureRequirements() {
+		return null;
+	}
+
+	@Override
+	public Collection<SBuildFeatureDescriptor> getBuildFeaturesOfType(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String[] getRunnersOrder() {
+		return null;
+	}
+
+	@Override
+	public List<String> getTemplateIds() {
+		return null;
+	}
+
+	@Override
+	public List<? extends BuildTypeTemplate> getTemplates() {
+		return null;
+	}
+
+	@Override
+	public <T> TypedValue<T> getTypedOption(Option<T> arg0) {
+		return null;
+	}
+
+	@Override
+	public boolean isCompositeBuildType() {
+		return false;
+	}
+
+	@Override
+	public boolean isTemplateAccessible() {
+		return false;
+	}
+
+	@Override
+	public void removeArtifactDependency(SArtifactDependency arg0) {
+
+	}
+
+	@Override
+	public void removeRequirement(Requirement arg0) {
+
+	}
+
+	@Override
+	public boolean replaceInValues(Pattern arg0, String arg1) {
+		return false;
+	}
+
+	@Override
+	public void resetRunnersOrder() {
+
+	}
+
+	@Override
+	public boolean textValueMatches(Pattern arg0) {
+		return false;
+	}
+
+	@Override
+	public <T> T getDeclaredOption(Option<T> arg0) {
+		return null;
+	}
+
+	@Override
+	public <T> T getOptionDefaultValue(Option<T> arg0) {
+		return null;
+	}
+
+	@Override
+	public Collection<Option> getOptions() {
+		return null;
+	}
+
+	@Override
+	public Collection<Option> getOwnOptions() {
+		return null;
+	}
+
+	@Override
+	public Parameter getOwnParameter(String arg0) {
+		return null;
+	}
+
+	@Override
+	public Parameter getParameter(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String getParameterValue(String arg0) {
+		return null;
+	}
+
+	@Override
+	public void addTemplate(BuildTypeTemplate arg0, boolean arg1) {
+
+	}
+
+	@Override
+	public void forceCheckingForChanges(OperationRequestor arg0) {
+
+	}
+
+	@Override
+	public BranchFilter getBuildTypeBranchFilter() {
+		return null;
+	}
+
+	@Override
+	public List<? extends BuildTypeTemplate> getOwnTemplates() {
+		return null;
+	}
+
+	@Override
+	public String getReadOnlyReason() {
+		return null;
+	}
+
+	@Override
+	public VcsRootInstanceEntry getVcsRootInstanceEntryForParent(SVcsRoot arg0) {
+		return null;
+	}
+
+	@Override
+	public String getVcsRootsHash() {
+		return null;
+	}
+
+	@Override
+	public boolean isReadOnly() {
+		return false;
+	}
+
+	@Override
+	public void moveToProject(ConfigAction arg0, SProject arg1) throws InvalidVcsRootScopeException {
+
+	}
+
+	@Override
+	public void removeTemplates(Collection<? extends BuildTypeTemplate> arg0, boolean arg1) {
+
+	}
+
+	@Override
+	public void setTemplates(List<? extends BuildTypeTemplate> arg0, boolean arg1) {
+
+	}
+
+	@Override
+	public void setTemplatesOrder(List<String> arg0) {
+
 	}
 
 

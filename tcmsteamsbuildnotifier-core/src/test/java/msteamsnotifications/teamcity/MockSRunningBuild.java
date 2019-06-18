@@ -515,7 +515,7 @@ public class MockSRunningBuild implements SRunningBuild {
 	}
 
 	@Override
-	public BuildProblemData addUserBuildProblem(User arg0, String arg1) {
+	public BuildProblemData addUserBuildProblem(SUser arg0, String arg1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -545,7 +545,7 @@ public class MockSRunningBuild implements SRunningBuild {
 	}
 
 	@Override
-	public void muteBuildProblems(User arg0, boolean arg1, String arg2) {
+	public void muteBuildProblems(SUser arg0, boolean arg1, String arg2) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -574,6 +574,26 @@ public class MockSRunningBuild implements SRunningBuild {
 	public String getProjectExternalId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Collection<SBuildFeatureDescriptor> getBuildFeaturesOfType(String arg0) {
+		return null;
+	}
+
+	@Override
+	public SFinishedBuild getRecentlyFinishedBuild() {
+		return null;
+	}
+
+	@Override
+	public boolean isAgentLessBuild() {
+		return false;
+	}
+
+	@Override
+	public int getAgentId() {
+		return 0;
 	}
 
 }

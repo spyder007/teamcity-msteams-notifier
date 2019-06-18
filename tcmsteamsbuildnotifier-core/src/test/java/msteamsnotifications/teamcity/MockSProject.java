@@ -554,6 +554,158 @@ public class MockSProject implements SProject {
 		this.childProjects.add(sProject);
 	}
 
+	@Override
+	public String getConfigId() {
+		return null;
+	}
+
+	@Override
+	public File getConfigurationFile(File arg0) {
+		return null;
+	}
+
+	@Override
+	public PersistentEntityVersion getVersion() {
+		return null;
+	}
+
+	@Override
+	public void markPersisted(long arg0) {
+
+	}
+
+	@Override
+	public void persist(ConfigAction arg0) throws PersistFailedException {
+
+	}
+
+	@Override
+	public Parameter getOwnParameter(String arg0) {
+		return null;
+	}
+
+	@Override
+	public Parameter getParameter(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String getParameterValue(String arg0) {
+		return null;
+	}
+
+	@Override
+	public void addFeature(SProjectFeatureDescriptor arg0) {
+
+	}
+
+	@Override
+	public SProjectFeatureDescriptor addFeature(String arg0, Map<String, String> arg1) {
+		return null;
+	}
+
+	@Override
+	public SVcsRoot createDummyVcsRoot(String arg0, Map<String, String> arg1) {
+		return null;
+	}
+
+	@Override
+	public SBuildType findBuildTypeByExternalId(String arg0) {
+		return null;
+	}
+
+	@Override
+	public SProjectFeatureDescriptor findFeatureById(String arg0) {
+		return null;
+	}
+
+	@Override
+	public Collection<SProjectFeatureDescriptor> getAvailableFeatures() {
+		return null;
+	}
+
+	@Override
+	public Collection<SProjectFeatureDescriptor> getAvailableFeaturesOfType(String arg0) {
+		return null;
+	}
+
+	@Override
+	public List<SVcsRoot> getAvailableVcsRoots() {
+		return null;
+	}
+
+	@Override
+	public CustomDataStorage getCustomDataStorage(String arg0) {
+		return null;
+	}
+
+	@Override
+	public BuildTypeTemplate getDefaultTemplate() {
+		return null;
+	}
+
+	@Override
+	public String getDefaultTemplateId() {
+		return null;
+	}
+
+	@Override
+	public BuildTypeTemplate getOwnDefaultTemplate() {
+		return null;
+	}
+
+	@Override
+	public String getOwnDefaultTemplateId() {
+		return null;
+	}
+
+	@Override
+	public Collection<SProjectFeatureDescriptor> getOwnFeatures() {
+		return null;
+	}
+
+	@Override
+	public Collection<SProjectFeatureDescriptor> getOwnFeaturesOfType(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String getReadOnlyReason() {
+		return null;
+	}
+
+	@Override
+	public Status getStatus(String arg0) {
+		return null;
+	}
+
+	@Override
+	public boolean isReadOnly() {
+		return false;
+	}
+
+	@Override
+	public void moveToProject(ConfigAction arg0, SProject arg1)
+			throws CyclicDependencyException, InvalidVcsRootScopeException {
+
+	}
+
+	@Override
+	public SProjectFeatureDescriptor removeFeature(String arg0) {
+		return null;
+	}
+
+	@Override
+	public void setExternalId(ConfigAction arg0, String arg1)
+			throws InvalidIdentifierException, DuplicateExternalIdException, ObsoleteEntityException {
+
+	}
+
+	@Override
+	public boolean updateFeature(String arg0, String arg1, Map<String, String> arg2) {
+		return false;
+	}
+
 	
 	
 	
