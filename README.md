@@ -10,7 +10,7 @@ Posts Build Status to [MsTeams](http://teams.microsoft.com).  This plugin is bas
 ![Sample Notification](https://raw.github.com/spyder007/teamcity-msteams-notifier/master/docs/build-status_pass.png)
 ![Sample Notification](https://raw.github.com/spyder007/teamcity-msteams-notifier/master/docs/build-status_fail.png)
 
-_Tested on TeamCity 2017.2 (build 50574)_
+_Tested on TeamCity 2019.1 (build 65998)_
 
 ## Installation
 Head over to the [releases](https://github.com/spyder007/teamcity-msteams-notifier/releases) section and get the zip labelled `tcMsTeamsNotifierPlugin.zip` from there (do not download the one on this page). Copy the zip file into your [TeamCity plugins directory](https://confluence.jetbrains.com/display/TCD9/Installing+Additional+Plugins).
