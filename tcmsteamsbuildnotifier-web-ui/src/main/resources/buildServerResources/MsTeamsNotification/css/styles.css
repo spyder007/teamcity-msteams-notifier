@@ -19,7 +19,7 @@ label {
 	border-top: 1px black;
 }
 
-.slackNotificationRowTemplate {
+.msTeamsNotificationRowTemplate {
 	display:none;
 }
 
