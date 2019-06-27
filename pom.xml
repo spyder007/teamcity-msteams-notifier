@@ -7,7 +7,7 @@
         <teamcity-version>2019.1</teamcity-version>
         <majorVersion>2</majorVersion>
         <minorVersion>0</minorVersion>
-        <patchVersion>0</patchVersion>
+        <patchVersion>1</patchVersion>
         <currentVersion>${majorVersion}.${minorVersion}.${patchVersion}</currentVersion>
     </properties>
     <version>${currentVersion}</version>
