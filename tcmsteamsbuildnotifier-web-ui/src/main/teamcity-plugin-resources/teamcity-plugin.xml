@@ -3,9 +3,9 @@
                  xsi:noNamespaceSchemaLocation="urn:shemas-jetbrains-com:teamcity-plugin-v1-xml">
   <info>
     <name>tcMsTeamsNotifications</name>
-    <display-name>MsTeams Notifications plugin</display-name>
+    <display-name>Microsoft Teams Notifications</display-name>
     <version>${version}</version>
-    <description>Trigger msteams notifications POST requests from build events. Adds tabs to the Project and Build pages.</description>
+    <description>Extend TeamCity Notifications to post messages in Microsoft Teams for build events. Adds tabs to the Project and Build pages.</description>
     <vendor>
       <name>Spyder007</name>
       <url>http://www.mattgerega.com/</url>
