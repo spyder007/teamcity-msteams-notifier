@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>tcmsteamsbuildnotifier</artifactId>
-        <groupId>spyder007.teamcity.plugins.tcmsteamsnotifications</groupId>
+        <groupId>spyder007.tcmsteamsnotifications</groupId>
         <version>${currentVersion}</version>
         <relativePath>..</relativePath>
     </parent>
@@ -146,14 +146,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>spyder007.teamcity.plugins.tcmsteamsnotifications</groupId>
+            <groupId>spyder007.tcmsteamsnotifications</groupId>
             <artifactId>tcmsteamsbuildnotifier-core</artifactId>
             <version>${currentVersion}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>spyder007.teamcity.plugins.tcmsteamsnotifications</groupId>
+            <groupId>spyder007.tcmsteamsnotifications</groupId>
             <artifactId>tcmsteamsbuildnotifier-core</artifactId>
             <version>${currentVersion}</version>
             <type>test-jar</type>
