@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>spyder007.teamcity.plugins.tcmsteamsnotifications</groupId>
+    <groupId>spyder007.tcmsteamsnotifications</groupId>
     <artifactId>tcmsteamsbuildnotifier</artifactId>
     <properties>
         <teamcity-version>2019.1</teamcity-version>
         <majorVersion>2</majorVersion>
         <minorVersion>0</minorVersion>
-        <patchVersion>1</patchVersion>
+        <patchVersion>2</patchVersion>
         <currentVersion>${majorVersion}.${minorVersion}.${patchVersion}</currentVersion>
     </properties>
     <version>${currentVersion}</version>
-    <name>tcMsTeamsNotifications - Extends TeamCity functionality by adding msteams notifications</name>
+    <name>Microsoft Teams Notifier</name>
     <build>
         <defaultGoal>package</defaultGoal>
 
