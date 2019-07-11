@@ -1,8 +1,8 @@
-#slackNotificationErrors ul li {
+#msTeamsNotificationErrors ul li {
     color: red;
 }
 
-.slackNotifierVersionInfo {
+.msteamsNotifierVersionInfo {
     color: #888;
     font-size: 90%;
     float:right;
