@@ -195,9 +195,10 @@
 			    	jQueryMsTeamsnotification('#editMsTeamsNotificationDialog').innerWidth(msTeamsnotificationDialogWidth);
 			    }
 			    
-			    this.showCentered();
-			    jQueryMsTeamsnotification('#buildPane').innerHeight(jQueryMsTeamsnotification('#hookPane').innerHeight());
-				jQueryMsTeamsnotification('#tab-container').easytabs('select', tab);
+			    this.showCentered().then(function() {
+					jQueryMsTeamsnotification('#buildPane').innerHeight(jQueryMsTeamsnotification('#hookPane').innerHeight());
+					jQueryMsTeamsnotification('#tab-container').easytabs('select', tab);
+				});
 			  },
 
 			  cancelDialog : function() {

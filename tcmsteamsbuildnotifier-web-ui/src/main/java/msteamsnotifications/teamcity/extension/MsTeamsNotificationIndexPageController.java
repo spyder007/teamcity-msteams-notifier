@@ -65,7 +65,7 @@ public class MsTeamsNotificationIndexPageController extends BaseController {
 	    	
 	        HashMap<String,Object> params = new HashMap<String,Object>();
 	        params.put("jspHome",this.myPluginDescriptor.getPluginResourcesPath());
-        	params.put("includeJquery", Boolean.toString(this.myServer.getServerMajorVersion() < 7));
+        	params.put("includeJquery", Boolean.toString(this.myServer.getVersion().getDisplayVersionMajor() < 7));
         	params.put("rootContext", myServer.getServerRootPath());
 	        
 	    	if (myMainSettings.getInfoUrl() != null && myMainSettings.getInfoUrl().length() > 0){

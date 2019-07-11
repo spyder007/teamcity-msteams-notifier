@@ -46,10 +46,11 @@
         <div class="dialogHeader">
           <div class="closeWindow">
             <a title="Close dialog window" href="javascript://" showdiscardchangesmessage="false"
-               onclick="BS.EditMsTeamsNotificationDialog.cancelDialog()">close</a>
-          </div>
-          <h3 id="msTeamsNotificationDialogTitle" class="dialogTitle"></h3>
-
+               onclick="BS.EditMsTeamsNotificationDialog.cancelDialog()">x</a>
+		  </div>
+		  <div class="dialogHandle">
+          	<h3 id="msTeamsNotificationDialogTitle" class="dialogTitle"></h3>
+		  </div>
         </div>
 
         <div class="modalDialogBody">
@@ -231,7 +232,6 @@
                                                 </td>
                                             </tr>
                                         </table>
-
                                 </div>
 					    			
 					    			<div id='buildPane'>
