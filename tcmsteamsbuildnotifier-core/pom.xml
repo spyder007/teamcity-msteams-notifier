@@ -218,8 +218,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>log4j-core</groupId>
-			<artifactId>log4j-core</artifactId>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j</artifactId>
 			<version>2.13.0</version>
 			<scope>test</scope>
 		</dependency>
