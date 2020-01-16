@@ -1,6 +1,6 @@
 language: java
 jdk:
-- oraclejdk8
+- oraclejdk15
 deploy:
   provider: releases
   skip_cleanup: true
