@@ -5,12 +5,8 @@
     <artifactId>tcmsteamsbuildnotifier</artifactId>
     <properties>
         <teamcity-version>2019.1</teamcity-version>
-        <majorVersion>2</majorVersion>
-        <minorVersion>0</minorVersion>
-        <patchVersion>3</patchVersion>
-        <currentVersion>${majorVersion}.${minorVersion}.${patchVersion}</currentVersion>
     </properties>
-    <version>${currentVersion}</version>
+    <version>2.0.4</version>
     <name>Microsoft Teams Notifier</name>
     <build>
         <defaultGoal>package</defaultGoal>

@@ -4,7 +4,7 @@
     <parent>
         <artifactId>tcmsteamsbuildnotifier</artifactId>
         <groupId>spyder007.tcmsteamsnotifications</groupId>
-        <version>${currentVersion}</version>
+        <version>2.0.4</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>tcmsteamsbuildnotifier-web-ui</artifactId>
@@ -148,14 +148,14 @@
         <dependency>
             <groupId>spyder007.tcmsteamsnotifications</groupId>
             <artifactId>tcmsteamsbuildnotifier-core</artifactId>
-            <version>${currentVersion}</version>
+            <version>2.0.4</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>spyder007.tcmsteamsnotifications</groupId>
             <artifactId>tcmsteamsbuildnotifier-core</artifactId>
-            <version>${currentVersion}</version>
+            <version>2.0.4</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>

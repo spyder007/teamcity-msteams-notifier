@@ -8,6 +8,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  release:
+    types: [ published ]
 
 jobs:
   build:
@@ -20,10 +22,28 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Set default version
+      run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
+    - name: Set release version
+      if: ${{ github.event.action == 'published' && !github.event.release.draft}}
+      run:  TAG=$(git describe --tags); if github.event.release.prerelease; then RELEASE="-prerelease"; else  RELEASE="";  fi; echo "VERSION=${TAG}${RELEASE}" >> $GITHUB_ENV
+    - name: Update version
+      run: mvn versions:set -DnewVersion='$VERSION'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.0
       with:
-        name: teamcity-msteam-notifier # optional, default is artifact
-        path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-*.zip
+        name: teamcity-msteam-notifier
+        path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ $VERSION }}.zip
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      if: ${{ github.event.action == 'published' && !github.event.release.draft}}
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ $VERSION }}.zip
+        asset_name: tcmsteamsbuildnotifier-${{ $VERSION }}.zip
+        asset_content_type: application/zip
