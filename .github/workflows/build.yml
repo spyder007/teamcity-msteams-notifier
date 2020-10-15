@@ -30,7 +30,7 @@ jobs:
       if: ${{ github.event.action == 'published' && !github.event.release.draft}}
       run:  TAG=$(git describe --tags); if github.event.release.prerelease; then RELEASE="-prerelease"; else  RELEASE="";  fi; echo "VERSION=${TAG}${RELEASE}" >> $GITHUB_ENV
     - name: Update version
-      run: mvn versions:set -DnewVersion='$VERSION'
+      run: mvn versions:set -DnewVersion='${{ env.VERSION }}'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload a Build Artifact
