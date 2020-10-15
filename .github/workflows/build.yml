@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.0
       with:
         name: teamcity-msteam-notifier
-        path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ $VERSION }}.zip
+        path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ env.VERSION }}.zip
     - name: Upload Release Asset
       id: upload-release-asset 
       if: ${{ github.event.action == 'published' && !github.event.release.draft}}
@@ -44,6 +44,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ github.event.release.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ $VERSION }}.zip
+        asset_path: tcmsteamsbuildnotifier-web-ui/target/tcmsteamsbuildnotifier-${{ env.VERSION }}.zip
         asset_name: tcmsteamsbuildnotifier-${{ $VERSION }}.zip
         asset_content_type: application/zip
