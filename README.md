@@ -1,7 +1,6 @@
 Teamcity MS Teams Build Notifier
 ====================
-
-![Build Status](https://travis-ci.org/spyder007/teamcity-msteams-notifier.svg?branch=master)
+![Build Status - Master](https://github.com/spyder007/teamcity-msteams-notifier/workflows/Publish%20Pipeline/badge.svg?branch=master)
 
 ## Overview
 
