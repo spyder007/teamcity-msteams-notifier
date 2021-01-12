@@ -30,6 +30,7 @@ public class MsTeamsNotificationProjectTabExtension extends ProjectTab {
 		super("msteamsNotifications", "MsTeams", pagePlaces, projectManager);
 		this.projSettings = settings;
 		myPluginPath = pluginDescriptor.getPluginResourcesPath();
+		register();
 	}
 
 	@Override
