@@ -37,10 +37,10 @@ public class MsTeamsNotificator implements Notificator {
     private ArrayList<UserPropertyInfo> userProps;
     private NotificationUtility notificationUtility;
 
-    private static final String SLACK_USERNAME_KEY = "tcMsTeamsNotifier.userName";
+    private static final String MSTEAMS_USERNAME_KEY = "tcMsTeamsNotifier.userName";
     private static final String TYPE = "tcMsTmBldNotifier";
 
-    public static final PropertyKey USERNAME_KEY = new NotificatorPropertyKey(TYPE, SLACK_USERNAME_KEY);
+    public static final PropertyKey USERNAME_KEY = new NotificatorPropertyKey(TYPE, MSTEAMS_USERNAME_KEY);
 
     public MsTeamsNotificator(NotificatorRegistry notificatorRegistry,
                             SBuildServer sBuildServer,
@@ -50,7 +50,7 @@ public class MsTeamsNotificator implements Notificator {
         Loggers.ACTIVITIES.debug("Registering MsTeamsNotificator...");
 
         userProps = new ArrayList<UserPropertyInfo>();
-        userProps.add(new UserPropertyInfo(SLACK_USERNAME_KEY, "MsTeams Username"));
+        userProps.add(new UserPropertyInfo(MSTEAMS_USERNAME_KEY, "MsTeams Username"));
         notificatorRegistry.register(this, userProps);
         mainConfig = configSettings;
         notificationFactory = factory;
