@@ -15,6 +15,7 @@ public class ConfigLoaderUtil {
 	
 	public static Element getFullConfigElement(File file) throws JDOMException, IOException{
 		SAXBuilder builder = new SAXBuilder();
+		builder.setExpandEntities(false);
 		builder.setIgnoringElementContentWhitespace(true);
 		Document doc = builder.build(file);
 		return doc.getRootElement();

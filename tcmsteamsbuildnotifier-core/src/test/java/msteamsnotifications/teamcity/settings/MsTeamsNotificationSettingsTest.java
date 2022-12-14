@@ -113,6 +113,7 @@ public class MsTeamsNotificationSettingsTest {
 	@Test
 	public void test_WebookConfig() throws JDOMException, IOException{
 		SAXBuilder builder = new SAXBuilder();
+		builder.setExpandEntities(false);
 		List<MsTeamsNotificationConfig> configs = new ArrayList<MsTeamsNotificationConfig>();
 		builder.setIgnoringElementContentWhitespace(true);
 			Document doc = builder.build("src/test/resources/testdoc2.xml");
@@ -144,6 +145,7 @@ public class MsTeamsNotificationSettingsTest {
 	@Test
 	public void test_ReadXml() throws JDOMException, IOException {
 		SAXBuilder builder = new SAXBuilder();
+		builder.setExpandEntities(false);
 		//builder.setValidation(true);
 		builder.setIgnoringElementContentWhitespace(true);
 		

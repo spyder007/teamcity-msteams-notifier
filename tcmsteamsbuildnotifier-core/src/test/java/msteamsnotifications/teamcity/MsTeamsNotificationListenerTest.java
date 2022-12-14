@@ -156,6 +156,7 @@ public class MsTeamsNotificationListenerTest {
 
     private Element getElement(String filePath){
         SAXBuilder builder = new SAXBuilder();
+		builder.setExpandEntities(false);
         builder.setIgnoringElementContentWhitespace(true);
         try {
             Document doc = builder.build(filePath);
