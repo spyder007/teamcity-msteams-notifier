@@ -56,7 +56,7 @@ public class MsTeamsNotificationImpl implements MsTeamsNotification {
     private List<NameValuePair> params = new ArrayList<NameValuePair>();
     private BuildState states;
     private String botName;
-    private final static String CONTENT_TYPE = "application/x-www-form-urlencoded";
+    private final static String CONTENT_TYPE = "application/json";
     private PostMessageResponse response;
     private Boolean showBuildAgent;
     private Boolean showElapsedBuildTime;
@@ -181,7 +181,7 @@ public class MsTeamsNotificationImpl implements MsTeamsNotification {
                 }
 
                 this.response = resp;
-                this.content = EntityUtils.toString(response.getEntity());
+          //      this.content = EntityUtils.toString(response.getEntity());
 
             } finally {
                 httppost.releaseConnection();
