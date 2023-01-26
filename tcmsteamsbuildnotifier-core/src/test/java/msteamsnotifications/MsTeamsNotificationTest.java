@@ -4,6 +4,7 @@ import org.apache.http.ProtocolVersion;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.message.BasicStatusLine;
 import org.junit.Ignore;
@@ -18,6 +19,7 @@ import msteamsnotifications.teamcity.payload.content.MsTeamsNotificationPayloadC
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
@@ -129,6 +131,33 @@ public class MsTeamsNotificationTest {
         HttpClient httpClient = mock(HttpClient.class);
         BasicHttpResponse response = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 1, 1), 400, ""));
         response.setEntity(new StringEntity("failure reason here"));
+
+        when(httpClient.execute(requestCaptor.capture())).thenReturn(response);
+
+        MsTeamsNotification w = factory.getMsTeamsNotification(httpClient);
+
+        MsTeamsNotificationPayloadContent content = new MsTeamsNotificationPayloadContent();
+        content.setBuildDescriptionWithLinkSyntax("http://foo");
+        content.setCommits(new ArrayList<Commit>());
+
+        w.setPayload(content);
+        w.setEnabled(true);
+        w.post();
+
+        assertNotNull(w.getResponse());
+        assertFalse(w.getResponse().getOk());
+    }
+
+    @Test
+    public void post_whenResponseIsFailure_readsResponseOnce() throws IOException {
+        ArgumentCaptor<HttpPost> requestCaptor = ArgumentCaptor.forClass(HttpPost.class);
+        HttpClient httpClient = mock(HttpClient.class);
+        BasicHttpResponse response = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 1, 1), 400, ""));
+		BasicHttpEntity readOnce = new BasicHttpEntity();
+		// the nullInputStream gets closed when it is read and doesn't allow being read a second time. 
+		InputStream readOnceStream = InputStream.nullInputStream();
+		readOnce.setContent(readOnceStream);
+        response.setEntity(readOnce);
 
         when(httpClient.execute(requestCaptor.capture())).thenReturn(response);
 
