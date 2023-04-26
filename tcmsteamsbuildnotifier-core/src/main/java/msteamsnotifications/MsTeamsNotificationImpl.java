@@ -2,6 +2,7 @@ package msteamsnotifications;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+import java.nio.charset.StandardCharsets;
 import jetbrains.buildServer.util.StringUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -162,8 +163,8 @@ public class MsTeamsNotificationImpl implements MsTeamsNotification {
 
             Loggers.SERVER.info("MsTeamsNotificationListener :: Body message will be " + bodyParam);
 
-            httppost.setEntity(new StringEntity(bodyParam));
-            httppost.setHeader("Content-Type", CONTENT_TYPE);
+            httppost.setEntity(new StringEntity(bodyParam, StandardCharsets.UTF_8));
+            httppost.setHeader("Content-Type", CONTENT_TYPE + ";charset=UTF-8");
 
             try {
                 HttpResponse response = client.execute(httppost);
